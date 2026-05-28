@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Home",
+    "url": "/"
+  },
+  {
+    "label": "Publications",
+    "url": "/publications/"
+  },
+  {
+    "label": "CV",
+    "url": "/cv/"
+  },
+  {
+    "label": "Podcast",
+    "url": "/podcast/"
+  },
+  {
+    "label": "Media",
+    "url": "/media/"
+  },
+  {
+    "label": "Contact",
+    "url": "/contact/"
+  }
+]

@@ -1,0 +1,60 @@
+<div class="pub-intro">
+  <p class="pub-intro-lead">Thanks for your interest in my work!</p>
+  <p>Below you'll find a list of my publications.</p>
+  <p><strong>Simply click the titles</strong> for publicly available pre-prints.</p>
+  <p>For published versions, please click the <strong>[X]</strong> in the Link column.</p>
+</div>
+
+<div class="pub-table-wrap">
+  <table class="pub-table">
+    <thead>
+      <tr>
+        <th scope="col">Year</th>
+        <th scope="col">Author(s)</th>
+        <th scope="col">Title</th>
+        <th scope="col">Journal (or Other)</th>
+        <th scope="col">Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pub in pubs %}
+      <tr>
+        <td>{{ pub.year }}</td>
+        <td>{{ pub.authors }}</td>
+        <td>
+          {% if pub.preprint_url %}
+          <a href="{{ pub.preprint_url }}">{{ pub.title }}</a>
+          {% else %}
+          {{ pub.title }}
+          {% endif %}
+        </td>
+        <td>{{ pub.journal }}</td>
+        <td class="pub-link-col">
+          {% if pub.published_url %}
+          <a href="{{ pub.published_url }}" aria-label="Published version of {{ pub.title }}">[X]</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<ul class="pub-cards" aria-label="Publications">
+  {% for pub in pubs %}
+  <li class="pub-card">
+    <p class="pub-card-meta"><span class="pub-card-year">{{ pub.year }}</span> · {{ pub.authors }}</p>
+    <h2 class="pub-card-title">
+      {% if pub.preprint_url %}
+      <a href="{{ pub.preprint_url }}">{{ pub.title }}</a>
+      {% else %}
+      {{ pub.title }}
+      {% endif %}
+    </h2>
+    <p class="pub-card-journal"><em>{{ pub.journal }}</em></p>
+    {% if pub.published_url %}
+    <p class="pub-card-link"><a href="{{ pub.published_url }}">Published version [X]</a></p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

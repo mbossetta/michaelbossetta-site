@@ -1,0 +1,14 @@
+{% set page_title = og_title if og_title else (title ~ " - " ~ site.name if title else site.name ~ " | " ~ site.tagline) %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title %}{{ title }} - {% endif %}{{ site.name }}</title>
+{% if description %}<meta name="description" content="{{ description }}">{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ page_title }}">
+{% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="{{ site.twitter_handle }}">
+{% if description %}<meta name="twitter:description" content="{{ description }}">{% endif %}

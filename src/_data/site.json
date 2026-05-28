@@ -1,0 +1,20 @@
+{
+  "name": "Michael Bossetta",
+  "tagline": "Social Media Expert | Podcaster",
+  "url": "https://michaelbossetta.com",
+  "email": "michael@socialmediaandpolitics.org",
+  "twitter": "https://twitter.com/michaelbossetta",
+  "twitter_handle": "@MichaelBossetta",
+  "ga4_id": "G-XV3CTBJWRY",
+  "cv_url": "/files/cv.pdf",
+  "cv_legacy_url": "/wp-content/uploads/2025/08/Michael-Bossetta-CV-Updated-August-2025.pdf",
+  "headshot": "/wp-content/uploads/2023/01/Michael-Bossetta-Headshot-Compressed-for-Website-1-scaled.jpg",
+  "hero_bg": "/wp-content/uploads/2018/04/Copenhagen-Black-White-Color-Select-1-e1524284609434.jpg",
+  "favicon": "/wp-content/uploads/2020/11/favicon-1.ico",
+  "podcast": {
+    "site": "https://socialmediaandpolitics.org",
+    "apple": "https://podcasts.apple.com/us/podcast/social-media-and-politics/id1170179745",
+    "spotify": "https://open.spotify.com/show/2xghw9Ivr9QpgG82yeBvQ6",
+    "embed": "https://embed.podcasts.apple.com/us/podcast/social-media-and-politics/id1170179745?itsct=podcast_box_player&itscg=30200&theme=auto"
+  }
+}

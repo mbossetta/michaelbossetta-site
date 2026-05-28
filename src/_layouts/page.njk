@@ -1,0 +1,7 @@
+---
+layout: base.njk
+---
+<section class="page-header container">
+  {% if page_title %}<h1>{{ page_title }}</h1>{% endif %}
+  {{ content | safe }}
+</section>
