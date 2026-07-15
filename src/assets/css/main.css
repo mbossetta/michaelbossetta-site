@@ -1,13 +1,21 @@
 /* Personify Pro–faithful styles for michaelbossetta.com static rebuild */
 
 :root {
-  --color-text: #333;
-  --color-muted: #767676;
-  --color-bg: #fff;
-  --color-page: #f6f6f6;
-  --color-accent: #003aa8;
-  --color-accent-hover: #002d82;
-  --color-border: #dde1e8;
+  --color-background: #fbfaf6;
+  --color-bg: var(--color-background);
+  --color-text: #2f2f2f;
+  --color-text-muted: #66645f;
+  --color-muted: var(--color-text-muted);
+  --color-blue: #123f91;
+  --color-blue-dark: #0c326f;
+  --color-accent: var(--color-blue);
+  --color-accent-hover: var(--color-blue-dark);
+  --color-oxblood: #6f2634;
+  --color-page: #f5f3ee;
+  --color-surface-alt: #f5f3ef;
+  --color-border: rgba(40, 40, 40, 0.18);
+  --color-blue-soft: rgba(18, 63, 145, 0.5);
+  --color-oxblood-soft: rgba(111, 38, 52, 0.35);
   --font-sans: "Open Sans", system-ui, -apple-system, sans-serif;
   --font-serif: "Abhaya Libre", Georgia, "Times New Roman", serif;
   --page-canvas-max: 1320px;
@@ -51,15 +59,33 @@ a:active {
   color: var(--color-accent-hover);
 }
 
+a:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+.page-shell,
+.wrapper {
+  width: min(calc(100% - 48px), var(--page-canvas-max));
+  margin-inline: auto;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.section-rule {
+  border-top: 1px solid var(--color-border);
+}
+
 .clearfix::after {
   content: "";
   display: table;
   clear: both;
-}
-
-.wrapper {
-  width: min(100% - 48px, var(--page-canvas-max));
-  margin-inline: auto;
 }
 
 .relative {
@@ -115,9 +141,20 @@ a:active {
 }
 
 .entry-content {
-  color: var(--color-muted);
+  color: var(--color-text);
   font-size: 16px;
   line-height: 26px;
+}
+
+.entry-content p,
+.page-content p {
+  text-align: left;
+  max-width: 65ch;
+}
+
+.read-more a:hover,
+.read-more a:focus-visible {
+  color: var(--color-oxblood);
 }
 
 .small-description {
@@ -151,8 +188,8 @@ a:active {
   position: sticky;
   top: 0;
   z-index: 3000;
-  background: #fff;
-  padding-inline: max(24px, calc((100% - min(100% - 48px, var(--page-canvas-max))) / 2));
+  background: var(--color-background);
+  padding-inline: max(24px, calc((100% - min(calc(100% - 48px), var(--page-canvas-max))) / 2));
 }
 
 #masthead.site-header::after {
@@ -179,8 +216,9 @@ a:active {
 
 .site-description {
   margin: 0;
-  font-size: 14px;
-  color: var(--color-muted);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
 }
 
 .menu-toggle {
@@ -195,6 +233,11 @@ a:active {
   color: var(--color-accent);
   float: right;
   height: 50px;
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
 }
 
 .main-navigation ul {
@@ -219,6 +262,11 @@ a:active {
 .main-navigation .current-menu-item > a,
 .main-navigation a[aria-current="page"] {
   color: var(--color-accent);
+}
+
+.main-navigation .current-menu-item > a,
+.main-navigation a[aria-current="page"] {
+  box-shadow: inset 0 -2px 0 var(--color-oxblood);
 }
 
 @media screen and (min-width: 1024px) {
@@ -300,6 +348,7 @@ a:active {
 #hero-section .featured-image {
   height: var(--hero-height);
   overflow: hidden;
+  background-color: var(--color-background);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -362,6 +411,10 @@ a:active {
   padding-bottom: 80px;
 }
 
+#about-section.section-rule {
+  border-top-color: var(--color-oxblood-soft);
+}
+
 #about-section .entry-header {
   width: 30%;
   float: left;
@@ -385,13 +438,14 @@ a:active {
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.5;
+  max-width: none;
 }
 
 #about-section .entry-title {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: 22px;
-  color: var(--color-muted);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   text-align: right;
   line-height: 38px;
@@ -401,6 +455,7 @@ a:active {
 
 #about-section .entry-content p {
   margin: 0;
+  color: var(--color-text);
 }
 
 #about-section .entry-title span {
@@ -424,7 +479,7 @@ a:active {
   float: left;
   position: relative;
   left: 6.3%;
-  border: 5px solid rgba(0, 58, 168, 0.5);
+  border: 5px solid var(--color-blue-soft);
 }
 
 #latest-posts .featured-image-wrapper {
@@ -435,6 +490,7 @@ a:active {
 
 #latest-posts .featured-image {
   padding: 400px 0;
+  background-color: var(--color-background);
   background-size: cover;
   background-position: 50%;
   position: relative;
@@ -469,7 +525,10 @@ a:active {
 
 #latest-posts .entry-meta {
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .entry-meta > span:not(:last-child)::after {
@@ -495,7 +554,7 @@ a:active {
 
 .entry-meta a:hover time,
 .post-categories a:hover {
-  color: var(--color-accent);
+  color: var(--color-oxblood);
 }
 
 #latest-posts .entry-title {
@@ -533,7 +592,7 @@ a:active {
 
 /* Video section */
 #video-wrapper {
-  background-color: #f4f5f6;
+  background-color: var(--color-surface-alt);
   padding: 50px 0;
 }
 
@@ -581,7 +640,7 @@ a:active {
 
 .btn-cv:hover,
 .btn-cv:focus {
-  background-color: #fff;
+  background-color: var(--color-background);
   color: var(--color-accent);
 }
 
@@ -687,7 +746,7 @@ a:active {
 }
 
 .pub-table tbody tr:nth-child(even) {
-  background: #fafbfc;
+  background: var(--color-page);
 }
 
 .pub-link-col {
@@ -828,7 +887,7 @@ a:active {
   }
 
   #latest-posts .section-content {
-    border: 5px solid rgba(0, 58, 168, 0.5);
+    border: 5px solid var(--color-blue-soft);
     padding: 25px;
   }
 
