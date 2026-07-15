@@ -13,6 +13,49 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("currentYear", () => new Date().getFullYear());
 
+  eleventyConfig.addFilter("groupMediaByCategory", (items) => {
+    const order = [
+      "Presentations",
+      "Television",
+      "Print",
+      "Radio",
+      "Podcasts / YouTube",
+      "Independent Publishers",
+    ];
+    const groups = {};
+    for (const item of items || []) {
+      if (!groups[item.category]) groups[item.category] = [];
+      groups[item.category].push(item);
+    }
+    for (const cat of Object.keys(groups)) {
+      groups[cat].sort((a, b) => (a.order || 0) - (b.order || 0));
+    }
+    return order
+      .filter((cat) => groups[cat]?.length)
+      .map((cat) => ({ category: cat, items: groups[cat] }));
+  });
+
+  eleventyConfig.addFilter("externalLink", (url) => {
+    if (!url) return false;
+    return url.startsWith("http://") || url.startsWith("https://");
+  });
+
+  eleventyConfig.addFilter("findById", (collection, id) => {
+    if (!id || !collection) return null;
+    return collection.find((item) => item.id === id) || null;
+  });
+
+  eleventyConfig.addFilter("accentTerms", (text, terms) => {
+    if (!text) return "";
+    let out = String(text);
+    const sorted = [...(terms || [])].sort((a, b) => b.length - a.length);
+    for (const term of sorted) {
+      const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      out = out.replace(new RegExp(escaped, "g"), `<span>${term}</span>`);
+    }
+    return out;
+  });
+
   return {
     dir: {
       input: "src",

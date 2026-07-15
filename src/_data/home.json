@@ -1,0 +1,53 @@
+{
+  "hero_intro": "I am an Associate Professor (Docent) in the Department of Communication at Lund University, where I specialize in the impact of social media on politics. You can visit Publications to read my work, or Podcast to access my interviews with industry leaders and academics.",
+  "about_headline": "My research focuses on how Politicians and Citizens use social media during Elections",
+  "about_headline_accents": [
+    "research",
+    "Politicians",
+    "Citizens",
+    "social media",
+    "Elections"
+  ],
+  "about_body": "Social media platforms have altered longstanding power relations between politicians, the media, and citizens. What this means for democracy remains an open question. My research explores how politicians and citizens leverage social media to campaign during elections. Empirically, I focus on the European Union and United States. Apart from electoral campaigning, I have conducted studies on disinformation, cyberattacks, Euroscepticism, and populism. I am passionate about research dissemination and do my utmost to accommodate speaking requests. You can reach me via the Contact page.",
+  "podcast_summary": "I produce and host the Social Media and Politics Podcast, an interview-driven podcast aiming to disseminate research findings to the public. The show has over 200,000 downloads from 150+ countries.",
+  "publications_feature": {
+    "section_label": "Research",
+    "posted_date": "April 21, 2018",
+    "posted_url": "/2018/04/21/publications/",
+    "category_label": "Research",
+    "category_url": "/publications/",
+    "title": "Publications",
+    "title_url": "/publications/",
+    "description": "I believe academic research should be freely available for anyone to read and scrutinize, not just those associated with universities. You'll find all my publications...",
+    "link_text": "Read More",
+    "link_url": "/publications/",
+    "publication_id": ""
+  },
+  "podcast_feature": {
+    "section_label": "Podcast",
+    "posted_date": "April 21, 2018",
+    "posted_url": "/2018/04/21/the-podcast/",
+    "category_label": "Podcast",
+    "category_url": "/podcast/",
+    "title": "The Podcast",
+    "title_url": "/podcast/",
+    "description": "In October 2016, I launched the Social Media and Politics Podcast, an interview-driven podcast aimed at delivering first-hand insights to policy makers, academics, and the public...",
+    "link_text": "Read More",
+    "link_url": "/podcast/",
+    "media_id": ""
+  },
+  "current_work_feature": {
+    "section_label": "",
+    "title": "",
+    "description": "",
+    "link_text": "",
+    "link_url": "",
+    "image": "",
+    "media_id": "",
+    "publication_id": "",
+    "social_handle": "@SMandPPodcast"
+  },
+  "quote": "Not to be onto something is to be in despair",
+  "quote_author": "Walker Percy",
+  "youtube_id": "xQm9wWMyG3M"
+}

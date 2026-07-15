@@ -3,8 +3,11 @@ layout: base.njk
 title: CV
 permalink: /cv/
 ---
-<div class="container page-content cv-download">
-  <h1>CV</h1>
-  <p><a class="btn" href="{{ site.cv_url }}">Download CV</a></p>
-  <p class="cv-note">PDF format.</p>
+{% include "page-title.njk" %}
+<div class="wrapper page-section no-padding-top">
+  <div class="page-content cv-download">
+    <p class="cv-button-wrap">
+      <a class="btn-cv" href="{{ site.cv_url }}" target="_blank" rel="noopener">Download CV</a>
+    </p>
+  </div>
 </div>

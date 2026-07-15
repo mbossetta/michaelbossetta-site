@@ -4,27 +4,27 @@ title: Podcast
 description: The Social Media and Politics podcast is an interview-driven show with leading digital campaigners and academic experts.
 permalink: /podcast/
 ---
-<div class="container page-content">
-  <h1>Podcast</h1>
+{% include "page-title.njk" %}
+<div class="wrapper page-section no-padding-top">
+  <div class="page-content">
+    <div class="podcast-embed">
+      <iframe
+        src="{{ site.podcast.embed }}"
+        title="Social Media and Politics on Apple Podcasts"
+        allow="autoplay *; encrypted-media *"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+        loading="lazy"></iframe>
+    </div>
 
-  <div class="podcast-embed">
-    <iframe
-      src="{{ site.podcast.embed }}"
-      title="Social Media and Politics on Apple Podcasts"
-      allow="autoplay *; encrypted-media *"
-      sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-      loading="lazy"></iframe>
+    <p>{% set intro_parts = site.podcast_page.intro.split('Social Media and Politics Podcast') %}{% if intro_parts | length == 2 %}{{ intro_parts[0] }}<strong><a href="{{ site.podcast.site }}">Social Media and Politics Podcast</a></strong>{{ intro_parts[1] }}{% else %}{{ site.podcast_page.intro }}{% endif %}</p>
+    {% for paragraph in site.podcast_page.body_paragraphs %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+
+    <ul class="podcast-links">
+      <li><a href="{{ site.podcast.site }}">Podcast website</a></li>
+      <li><a href="{{ site.podcast.apple }}">Apple Podcasts</a></li>
+      <li><a href="{{ site.podcast.spotify }}">Spotify</a></li>
+    </ul>
   </div>
-
-  <p>In October 2016, I launched the <strong><a href="{{ site.podcast.site }}">Social Media and Politics Podcast</a></strong>, an interview-driven podcast that explores politically relevant topics in the social media space.</p>
-  <p>Episodes are released bi-monthly and communicate expert insights from top-tier researchers, digital campaigners, and social media strategists.</p>
-  <p>Podcasting has quickly become one of my greatest passions, and it's all thanks to the listeners and guests who contribute their time to support the show.</p>
-  <p>So far, the series has garnered over 175,000 downloads from 150+ countries. Even if you're not a podcast listener, I'd encourage you to try it out!</p>
-  <p>You can find the Social Media and Politics Podcast on any podcast app.</p>
-
-  <ul class="podcast-links">
-    <li><a href="{{ site.podcast.site }}">Podcast website</a></li>
-    <li><a href="{{ site.podcast.apple }}">Apple Podcasts</a></li>
-    <li><a href="{{ site.podcast.spotify }}">Spotify</a></li>
-  </ul>
 </div>

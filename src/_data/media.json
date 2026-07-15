@@ -1,0 +1,250 @@
+[
+  {
+    "order": 1,
+    "category": "Presentations",
+    "date": "October 8, 2020",
+    "title": "\"Social Media and American Elections: Cutting through the Hype,\"",
+    "outlet": "Lund Association for Foreign Affairs (SE)",
+    "description": "Student Lecture",
+    "url": "https://www.youtube.com/watch?v=YiurxACAgYk",
+    "id": "media-Octo-social-media-and-american-elections-cutting-thro"
+  },
+  {
+    "order": 2,
+    "category": "Presentations",
+    "date": "October 19, 2019",
+    "title": "\"Are We Safe from Weaponized Bots?\"",
+    "outlet": "AI Lund Network (SE)",
+    "description": "Public Lecture",
+    "url": "https://www.youtube.com/watch?v=ZV5H9Uxf7tE",
+    "id": "media-Octo-are-we-safe-from-weaponized-bots"
+  },
+  {
+    "order": 3,
+    "category": "Presentations",
+    "date": "June 19, 2019",
+    "title": "\"The Digital Architectures of Social Media,\"",
+    "outlet": "University of Copenhagen (DK)",
+    "description": "PhD Defense",
+    "url": "https://www.youtube.com/watch?v=CmTYmgrWk3M",
+    "id": "media-June-the-digital-architectures-of-social-media"
+  },
+  {
+    "order": 4,
+    "category": "Presentations",
+    "date": "April 18, 2019",
+    "title": "\"Social Media, Elections, and Politics,\"",
+    "outlet": "European Commission Representation in Romania (RO)",
+    "description": "Public Lecture",
+    "url": "https://www.youtube.com/watch?v=AUxYqVf6yFQ",
+    "id": "media-Apri-social-media-elections-and-politics"
+  },
+  {
+    "order": 5,
+    "category": "Presentations",
+    "date": "April 3, 2019",
+    "title": "\"Virality on Social Media: Potentials and Pitfalls for Politics,\"",
+    "outlet": "European Parliament Panel on the Future of Science and Technology (BE)",
+    "description": "Presentation",
+    "url": "https://www.youtube.com/watch?v=yJal1zxSzOE",
+    "id": "media-Apri-virality-on-social-media-potentials-and-pitfalls"
+  },
+  {
+    "order": 1,
+    "category": "Television",
+    "date": "July 15, 2020",
+    "title": "\"Why is Social Media Having So Much Influence on this Year's Election?\"",
+    "outlet": "11Alive Atlanta (US)",
+    "url": "https://www.11alive.com/article/news/local/outreach/why-guy/why-is-social-media-having-so-much-influence-on-this-years-elections/85-bc33a97c-3c09-4061-a19c-3088b4423168",
+    "id": "media-July-why-is-social-media-having-so-much-influence-on-"
+  },
+  {
+    "order": 2,
+    "category": "Television",
+    "date": "September 2019",
+    "title": "\"Facebook and Instagram Remove Accounts of Italian Neo-facist Groups,\"",
+    "outlet": "Euronews (EU)",
+    "url": "https://www.euronews.com/2019/09/10/facebook-and-instagram-remove-accounts-of-italian-neo-facist-groups-thecube",
+    "id": "media-Sept-facebook-and-instagram-remove-accounts-of-italia"
+  },
+  {
+    "order": 1,
+    "category": "Print",
+    "date": "July 2022",
+    "title": "\"'Abortion Rights' vs. 'Live': Election Campaigns Post on Roe Reversal,\"",
+    "outlet": "USA Today (US)",
+    "url": "https://eu.usatoday.com/in-depth/news/investigations/2022/06/30/2022-election-rhetoric-supreme-court-roe-abortion/7762332001/",
+    "id": "media-July-abortion-rights-vs-live-election-campaigns-post-"
+  },
+  {
+    "order": 2,
+    "category": "Print",
+    "date": "March 2022",
+    "title": "\"Ucrania, la primera gran guerrade la era hiperconectada,\"",
+    "outlet": "El Mercurio (CL)",
+    "url": "/wp-content/uploads/2022/03/artículo-elmercurio-guerra-hiperconectada-Ucrania-bossetta.pdf",
+    "id": "media-Marc-ucrania-la-primera-gran-guerrade-la-era-hipercon"
+  },
+  {
+    "order": 3,
+    "category": "Print",
+    "date": "May 2020",
+    "title": "\"GOP Opens Up New Fight in Big Tech Censorship,\"",
+    "outlet": "Fox News (US)",
+    "url": "https://www.foxnews.com/politics/republican-lawmakers-excoriate-reddit-for-censorship-of-the-donald-pro-trump-forum",
+    "id": "media-May -gop-opens-up-new-fight-in-big-tech-censorship"
+  },
+  {
+    "order": 4,
+    "category": "Print",
+    "date": "April 2019",
+    "title": "\"Democrats Seek Young Voters, and the Memes that Move Them,\"",
+    "outlet": "The New York Times (US)",
+    "url": "https://www.nytimes.com/2019/04/22/us/politics/youth-voters-2020.html",
+    "id": "media-Apri-democrats-seek-young-voters-and-the-memes-that-m"
+  },
+  {
+    "order": 5,
+    "category": "Print",
+    "date": "March 2019",
+    "title": "\"Οι ακροδεξιές γωνίες του ίντερνετ είναι στο απυρόβλητο,\"",
+    "outlet": "Documento (GR)",
+    "url": "/wp-content/uploads/2019/03/Bossetta-Documento.pdf",
+    "id": "media-Marc-"
+  },
+  {
+    "order": 6,
+    "category": "Print",
+    "date": "September 2018",
+    "title": "\"Dansk Folkeparti, Sverigedemokraterna og AfD tiltrækker størst opmærksomhed på Facebook,\"",
+    "outlet": "Information (DK)",
+    "url": "https://www.information.dk/indland/2018/09/dansk-folkeparti-sverigedemokraterna-afd-tiltraekker-stoerst-opmaerksomhed-paa-facebook",
+    "id": "media-Sept-dansk-folkeparti-sverigedemokraterna-og-afd-tilt"
+  },
+  {
+    "order": 7,
+    "category": "Print",
+    "date": "March 2018",
+    "title": "\"How the Eighth Amendment Battle Moved to Social Media,\"",
+    "outlet": "University Times (IE)",
+    "url": "http://www.universitytimes.ie/2018/03/how-the-eighth-amendment-battle-moved-to-social-media/",
+    "id": "media-Marc-how-the-eighth-amendment-battle-moved-to-social-"
+  },
+  {
+    "order": 8,
+    "category": "Print",
+    "date": "February 2018",
+    "title": "\"Hear Here: Podcasts of the Week,\"",
+    "outlet": "The Guardian (UK)",
+    "url": "https://www.theguardian.com/tv-and-radio/2018/feb/09/making-obama-how-a-president-was-formed-podcasts-of-the-week",
+    "id": "media-Febr-hear-here-podcasts-of-the-week"
+  },
+  {
+    "order": 9,
+    "category": "Print",
+    "date": "June 2017",
+    "title": "\"How Facebook is Changing Democracy,\"",
+    "outlet": "Financial Times (UK)",
+    "url": "https://www.ft.com/content/a533d5ec-5085-11e7-bfb8-997009366969",
+    "id": "media-June-how-facebook-is-changing-democracy"
+  },
+  {
+    "order": 10,
+    "category": "Print",
+    "date": "June 2017",
+    "title": "\"The Future of Social Media on Campaigns,\"",
+    "outlet": "American Majority (US)",
+    "url": "https://www.americanmajarity.org/blog-2/the-future-of-social-media-on-campaigns/",
+    "id": "media-June-the-future-of-social-media-on-campaigns"
+  },
+  {
+    "order": 11,
+    "category": "Print",
+    "date": "March 2017",
+    "title": "\"Texas Reps take 'Bipartisan Road Trip' to D.C.,",
+    "outlet": "Houston Chronicle (US)",
+    "url": "https://www.houstonchronicle.com/news/houston-texas/houston/article/After-storm-cancelled-flights-Texas-reps-take-11002086.php",
+    "id": "media-Marc-texas-reps-take-bipartisan-road-trip-to-d-c"
+  },
+  {
+    "order": 1,
+    "category": "Radio",
+    "date": "November 2022",
+    "title": "\"Pausaulio 5,\"",
+    "outlet": "LRT (Lithuanian Public Radio)",
+    "url": "https://www.spreaker.com/user/lrt.lt/2022-11-22-5c1a6dd2-4946-f",
+    "id": "media-Nove-pausaulio-5"
+  },
+  {
+    "order": 2,
+    "category": "Radio",
+    "date": "October 2018",
+    "title": "\"Dimensionen,\"",
+    "outlet": "Ö1 (Austrian Public Radio)",
+    "url": "https://soundcloud.com/mbossetta/dimensionen-oe1-michael-bossetta",
+    "id": "media-Octo-dimensionen"
+  },
+  {
+    "order": 1,
+    "category": "Podcasts / YouTube",
+    "date": "January 2021",
+    "title": "Coffee & Politics",
+    "outlet": "Forbes DACH (Sophie Spiegelberger)",
+    "url": "https://www.youtube.com/watch?v=C8qzm25ebw0",
+    "id": "media-Janu-coffee-politics"
+  },
+  {
+    "order": 2,
+    "category": "Podcasts / YouTube",
+    "date": "April 2020",
+    "title": "Adam Carolla Show",
+    "outlet": "(Adam Carolla)",
+    "url": "https://www.youtube.com/watch?v=FxMiR6LaTYI",
+    "id": "media-Apri-adam-carolla-show"
+  },
+  {
+    "order": 3,
+    "category": "Podcasts / YouTube",
+    "date": "June 2017",
+    "title": "Podcast of the Day",
+    "outlet": "(Grant Polmanteer)",
+    "url": "https://player.fm/series/podcast-of-the-day-1501389",
+    "id": "media-June-podcast-of-the-day"
+  },
+  {
+    "order": 1,
+    "category": "Independent Publishers",
+    "date": "April 2019",
+    "title": "Interview for European Science-Media Hub",
+    "outlet": "Sophia Ignatidou",
+    "url": "https://sciencemediahub.eu/2019/04/10/michael-bossetta-we-need-more-research-into-what-are-the-best-technological-structures-to-facilitate-meaningful-dialogue/",
+    "id": "media-Apri-interview-for-european-science-media-hub"
+  },
+  {
+    "order": 2,
+    "category": "Independent Publishers",
+    "date": "September 2018",
+    "title": "\"25 Political Scientists to Follow on Twitter,\"",
+    "outlet": "Steve Rayson (Brighton Cafe Blog)",
+    "url": "https://www.brightoncafe.com/2018/09/25-political-scientists-to-follow-on.html",
+    "id": "media-Sept-25-political-scientists-to-follow-on-twitter"
+  },
+  {
+    "order": 3,
+    "category": "Independent Publishers",
+    "date": "September 2017",
+    "title": "\"Review: Social Media and Politics Podcast,\"",
+    "outlet": "Tom Moylan (via LinkedIn)",
+    "url": "https://www.linkedin.com/pulse/review-social-media-politics-podcast-tom-moylan/",
+    "id": "media-Sept-review-social-media-and-politics-podcast"
+  },
+  {
+    "order": 4,
+    "category": "Independent Publishers",
+    "date": "July 2017",
+    "title": "\"Between Populist Leaders and Online 'Influencers', a Common Style,\"",
+    "outlet": "Tanya Filer (Medium)",
+    "url": "https://medium.com/@tanyafiler/between-populist-leaders-and-online-influencers-a-common-style-62967dada651",
+    "id": "media-July-between-populist-leaders-and-online-influencers-"
+  }
+]
