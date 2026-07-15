@@ -473,7 +473,7 @@ a:focus-visible {
 }
 
 @media (min-width: 821px) {
-  .research-description::first-letter {
+  #about-section .research-description::first-letter {
     float: left;
     font-family: var(--font-serif);
     font-size: 5.75rem;
@@ -860,6 +860,43 @@ a:focus-visible {
 
 /* Hero portrait — full intrinsic image above stacked breakpoint */
 @media (min-width: 821px) {
+  #hero-section .hentry {
+    grid-template-columns: minmax(420px, 0.9fr) minmax(0, 1.1fr);
+    align-items: stretch;
+  }
+
+  #hero-section .entry-summary {
+    align-self: center;
+    max-width: 470px;
+    min-height: 0;
+    padding-left: 14%;
+    padding-right: 15px;
+  }
+
+  #hero-section header.entry-header,
+  #hero-section .entry-description {
+    position: static;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    max-width: none;
+  }
+
+  #hero-section header.entry-header {
+    max-width: min(100%, 520px);
+  }
+
+  #hero-section .entry-description {
+    margin-top: 1.25rem;
+    max-width: none;
+  }
+
+  #hero-section .entry-description .entry-content,
+  #hero-section .small-description {
+    max-width: 36ch;
+    line-height: 1.6;
+  }
+
   #hero-section .featured-image {
     overflow: visible;
     aspect-ratio: auto;
@@ -1039,7 +1076,7 @@ a:focus-visible {
     padding-top: 0;
   }
 
-  .research-description::first-letter {
+  #about-section .research-description::first-letter {
     float: none;
     font-size: inherit;
     line-height: inherit;
