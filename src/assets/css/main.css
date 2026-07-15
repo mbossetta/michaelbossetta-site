@@ -921,6 +921,10 @@ a:focus-visible {
     object-fit: contain;
     object-position: center top;
   }
+
+  #about-section.page-section {
+    padding-top: 75px;
+  }
 }
 
 /* Responsive */
