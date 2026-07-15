@@ -10,7 +10,9 @@
   --color-border: #dde1e8;
   --font-sans: "Open Sans", system-ui, -apple-system, sans-serif;
   --font-serif: "Abhaya Libre", Georgia, "Times New Roman", serif;
-  --max-width: 1180px;
+  --page-canvas-max: 1320px;
+  --max-width: var(--page-canvas-max);
+  --hero-height: 560px;
 }
 
 *,
@@ -56,9 +58,8 @@ a:active {
 }
 
 .wrapper {
-  width: 90%;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  width: min(100% - 48px, var(--page-canvas-max));
+  margin-inline: auto;
 }
 
 .relative {
@@ -151,7 +152,7 @@ a:active {
   top: 0;
   z-index: 3000;
   background: #fff;
-  padding: 0 50px;
+  padding-inline: max(24px, calc((100% - min(100% - 48px, var(--page-canvas-max))) / 2));
 }
 
 #masthead.site-header::after {
@@ -281,37 +282,35 @@ a:active {
   padding-bottom: 3rem;
 }
 
-/* Hero — live Personify Pro composition */
-#hero-section .wrapper {
-  width: 90%;
-  max-width: 1550px;
-  margin-right: 0;
-}
-
+/* Hero — bounded two-column composition */
 #hero-section .hentry {
+  display: grid;
+  grid-template-columns: 47fr 53fr;
+  align-items: stretch;
   padding: 0;
   margin: 0;
 }
 
 #hero-section .entry-summary {
-  width: 47%;
-  float: left;
+  position: relative;
+  min-height: var(--hero-height);
   margin: 0;
 }
 
 #hero-section .featured-image {
-  width: 53%;
-  float: right;
+  height: var(--hero-height);
+  overflow: hidden;
   background-size: cover;
-  background-position: 50%;
-  padding: 280px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 #hero-section header.entry-header {
   position: absolute;
   top: 17%;
-  left: 17.5%;
+  left: 14%;
   z-index: 1;
+  max-width: min(100%, 520px);
 }
 
 #hero-section .entry-title {
@@ -321,6 +320,7 @@ a:active {
   line-height: 1;
   margin: 0;
   font-weight: 400;
+  max-width: 100%;
 }
 
 #hero-section .entry-title span {
@@ -339,7 +339,7 @@ a:active {
 #hero-section .entry-description {
   position: absolute;
   bottom: 11%;
-  left: 17.5%;
+  left: 14%;
   max-width: 340px;
   z-index: 1;
 }
@@ -416,9 +416,6 @@ a:active {
 /* Latest posts */
 #latest-posts .wrapper {
   position: relative;
-  margin-right: 0;
-  max-width: 100%;
-  width: 100%;
 }
 
 #latest-posts .posts-wrapper {
@@ -750,6 +747,27 @@ a:active {
   font-size: 0.9375rem;
 }
 
+/* Ultrawide — lock desktop composition, grow outer margins only */
+@media screen and (min-width: 1440px) {
+  #hero-section .entry-title {
+    font-size: 6.1875rem;
+  }
+
+  #hero-section .entry-summary,
+  #hero-section .featured-image {
+    min-height: var(--hero-height);
+    height: var(--hero-height);
+  }
+
+  #latest-posts .featured-image {
+    padding: 400px 0;
+  }
+
+  #feedback-section .speaker-quote .entry-content {
+    font-size: 30px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1023px) {
   #masthead.site-header {
@@ -828,10 +846,12 @@ a:active {
     padding: 300px 0;
   }
 
-  #hero-section .entry-summary,
-  #hero-section .featured-image {
-    width: 100%;
-    float: none;
+  #hero-section .hentry {
+    grid-template-columns: 1fr;
+  }
+
+  #hero-section .entry-summary {
+    min-height: 0;
   }
 
   #hero-section header.entry-header,
@@ -845,6 +865,7 @@ a:active {
   }
 
   #hero-section .featured-image {
+    height: auto;
     padding: 180px 0;
     margin-bottom: 30px;
   }
@@ -855,11 +876,6 @@ a:active {
 
   #hero-section .entry-title span.last-name {
     padding-left: 20px;
-  }
-
-  #hero-section .wrapper {
-    width: 90%;
-    margin: 0 auto;
   }
 
   .page-section {
