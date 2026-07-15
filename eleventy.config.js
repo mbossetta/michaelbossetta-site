@@ -1,5 +1,7 @@
 export default function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy({
+    "src/assets": "assets",
+  });
   eleventyConfig.addPassthroughCopy("src/files");
   eleventyConfig.addPassthroughCopy("src/wp-content");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
