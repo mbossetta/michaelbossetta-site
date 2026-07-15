@@ -21,13 +21,15 @@ permalink: /
             <div class="entry-content small-description">{{ home.hero_intro | replace("Publications", '<a href="/publications/">Publications</a>') | replace("Podcast", '<a href="/podcast/">Podcast</a>') | safe }}</div>
           </div>
         </div>
-        <div class="featured-image" style="background-image: url('{{ site.headshot }}');" role="img" aria-label="Portrait of Michael Bossetta"></div>
+        <div class="featured-image">
+          <img src="{{ site.headshot }}" alt="Portrait of Michael Bossetta" width="1200" height="1600" decoding="async">
+        </div>
       </article>
     </div>
   </div>
 </div>
 
-<div id="about-section" class="relative page-section section-rule">
+<div id="about-section" class="relative page-section">
   <div class="wrapper">
     <article class="hentry">
       <header class="entry-header">

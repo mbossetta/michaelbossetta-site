@@ -248,6 +248,7 @@ a:focus-visible {
 
 .main-navigation a {
   display: block;
+  position: relative;
   text-decoration: none;
   text-transform: uppercase;
   padding: 27px 25px;
@@ -264,9 +265,16 @@ a:focus-visible {
   color: var(--color-accent);
 }
 
-.main-navigation .current-menu-item > a,
-.main-navigation a[aria-current="page"] {
-  box-shadow: inset 0 -2px 0 var(--color-oxblood);
+.main-navigation .current-menu-item > a::after,
+.main-navigation a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(27px + 20px + 7px);
+  width: 75%;
+  height: 1px;
+  transform: translateX(-50%);
+  background: var(--color-oxblood);
 }
 
 @media screen and (min-width: 1024px) {
@@ -348,10 +356,17 @@ a:focus-visible {
 #hero-section .featured-image {
   height: var(--hero-height);
   overflow: hidden;
-  background-color: var(--color-background);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background-color: #adadad;
+}
+
+#hero-section .featured-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+  transform: scale(0.935);
+  transform-origin: 50% 100%;
 }
 
 #hero-section header.entry-header {
@@ -409,10 +424,6 @@ a:focus-visible {
 #about-section {
   clear: both;
   padding-bottom: 80px;
-}
-
-#about-section.section-rule {
-  border-top-color: var(--color-oxblood-soft);
 }
 
 #about-section .entry-header {
@@ -856,6 +867,11 @@ a:focus-visible {
     padding: 12px 15px;
   }
 
+  .main-navigation .current-menu-item > a::after,
+  .main-navigation a[aria-current="page"]::after {
+    display: none;
+  }
+
   #about-section .entry-header,
   #about-section .entry-content,
   #about-section .description {
@@ -925,8 +941,16 @@ a:focus-visible {
 
   #hero-section .featured-image {
     height: auto;
-    padding: 180px 0;
+    min-height: 0;
     margin-bottom: 30px;
+  }
+
+  #hero-section .featured-image img {
+    height: auto;
+    min-height: 180px;
+    max-height: 420px;
+    object-position: 50% 0%;
+    transform: none;
   }
 
   #hero-section .entry-title {
@@ -986,8 +1010,11 @@ a:focus-visible {
 }
 
 @media (max-width: 480px) {
-  #hero-section .featured-image {
-    padding: 145px 0;
+  #hero-section .featured-image img {
+    transform: none;
+    min-height: 220px;
+    max-height: 360px;
+    object-position: 50% 8%;
   }
 
   #latest-posts .featured-image {
