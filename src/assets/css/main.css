@@ -390,12 +390,12 @@ a:focus-visible {
   display: block;
 }
 
-#hero-section .entry-title span.first-name,
-#hero-section .entry-title span.last-name {
+#hero-section .entry-title span.first-name {
   color: var(--color-text);
 }
 
 #hero-section .entry-title span.last-name {
+  color: var(--color-accent);
   padding-left: 35px;
 }
 
@@ -403,15 +403,19 @@ a:focus-visible {
   position: absolute;
   bottom: 11%;
   left: 14%;
-  max-width: 340px;
+  max-width: 400px;
   z-index: 1;
+}
+
+#hero-section .separator {
+  margin-bottom: 20px;
 }
 
 #hero-section .entry-content {
   font-family: var(--font-serif);
   font-size: 18px;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -1054,7 +1058,7 @@ a:focus-visible {
 
   #hero-section .entry-description .entry-content,
   #hero-section .small-description {
-    max-width: 42ch;
+    max-width: 46ch;
   }
 
   #about-section {
