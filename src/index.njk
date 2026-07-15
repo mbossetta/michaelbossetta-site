@@ -4,18 +4,8 @@ title: Home
 og_title: Michael Bossetta | {{ site.tagline }}
 description: Michael Bossetta is an {{ site.position }} at {{ site.institution }}. His research explores the impact of social media on politics.
 permalink: /
+hide_global_footer: true
 ---
-{% set pub_feat = home.publications_feature %}
-{% set pod_feat = home.podcast_feature %}
-{% set work_feat = home.current_work_feature %}
-{% set linked_pub = pubs | findById(pub_feat.publication_id) %}
-{% set linked_work_media = media | findById(work_feat.media_id) %}
-{% set linked_work_pub = pubs | findById(work_feat.publication_id) %}
-{% set pub_title = linked_pub.title if linked_pub else pub_feat.title %}
-{% set pub_title_url = linked_pub.preprint_url if linked_pub and linked_pub.preprint_url else pub_feat.title_url %}
-{% set pub_description = linked_pub.note if linked_pub and linked_pub.note else pub_feat.description %}
-{% set sidebar_image = work_feat.image if work_feat.image else site.hero_bg %}
-{% set sidebar_handle = work_feat.social_handle if work_feat.social_handle else work_feat.title %}
 <div id="hero-section" class="relative">
   <div class="wrapper">
     <div class="section-content">
@@ -56,91 +46,10 @@ permalink: /
   </div>
 </div>
 
-<div id="latest-posts" class="relative featured-image-left">
-  <div class="wrapper">
-    <div class="section-content clearfix">
-      <div class="posts-wrapper">
-        <article class="hentry">
-          <div class="entry-meta">
-            {% if pub_feat.posted_url %}
-            <span class="posted-on"><a href="{{ pub_feat.posted_url }}"><time>{{ pub_feat.posted_date }}</time></a></span>
-            {% else %}
-            <span class="posted-on"><time>{{ pub_feat.posted_date }}</time></span>
-            {% endif %}
-            <span class="post-categories"><a href="{{ pub_feat.category_url }}">{{ pub_feat.category_label }}</a></span>
-          </div>
-          <header class="entry-header">
-            <h2 class="entry-title"><a href="{{ pub_title_url }}">{{ pub_title }}</a></h2>
-          </header>
-          <div class="entry-content">{{ pub_description }}</div>
-          <span class="read-more"><a href="{{ pub_feat.link_url }}">{{ pub_feat.link_text }}</a></span>
-        </article>
-        <article class="hentry">
-          <div class="entry-meta">
-            {% if pod_feat.posted_url %}
-            <span class="posted-on"><a href="{{ pod_feat.posted_url }}"><time>{{ pod_feat.posted_date }}</time></a></span>
-            {% else %}
-            <span class="posted-on"><time>{{ pod_feat.posted_date }}</time></span>
-            {% endif %}
-            <span class="post-categories"><a href="{{ pod_feat.category_url }}">{{ pod_feat.category_label }}</a></span>
-          </div>
-          <header class="entry-header">
-            <h2 class="entry-title"><a href="{{ pod_feat.title_url }}">{{ pod_feat.title }}</a></h2>
-          </header>
-          <div class="entry-content">{{ pod_feat.description }}</div>
-          <span class="read-more"><a href="{{ pod_feat.link_url }}">{{ pod_feat.link_text }}</a></span>
-        </article>
-        {% if work_feat.title %}
-        <article class="hentry">
-          {% if work_feat.section_label %}
-          <div class="entry-meta">
-            <span class="post-categories">{{ work_feat.section_label }}</span>
-          </div>
-          {% endif %}
-          <header class="entry-header">
-            <h2 class="entry-title">
-              {% if work_feat.link_url %}
-              <a href="{{ work_feat.link_url }}">{{ work_feat.title or linked_work_media.title or linked_work_pub.title }}</a>
-              {% else %}
-              {{ work_feat.title or linked_work_media.title or linked_work_pub.title }}
-              {% endif %}
-            </h2>
-          </header>
-          {% if work_feat.description %}
-          <div class="entry-content">{{ work_feat.description }}</div>
-          {% endif %}
-          {% if work_feat.link_url and work_feat.link_text %}
-          <span class="read-more"><a href="{{ work_feat.link_url }}">{{ work_feat.link_text }}</a></span>
-          {% endif %}
-        </article>
-        {% endif %}
-      </div>
-      <div class="featured-image-wrapper">
-        <div class="featured-image" style="background-image: url('{{ sidebar_image }}');">
-          <p class="designation">{{ sidebar_handle }}</p>
-        </div>
-      </div>
+<footer class="site-footer">
+  <div class="site-info">
+    <div class="wrapper">
+      <p>{{ site.name }}<br>{{ site.institution }}<br><a href="/contact/">Contact</a><br>Copyright © {{ "" | currentYear }}</p>
     </div>
   </div>
-</div>
-
-<div id="feedback-section" class="relative page-section">
-  <div class="wrapper">
-    <div class="section-content">
-      <svg class="icon-quote" aria-hidden="true" viewBox="0 0 76 65" width="76" height="65"><path fill="currentColor" d="M0 32V0h32v32H16c0 8.8 7.2 16 16 16v16C14.3 64 0 49.7 0 32zm44 0V0h32v32H60c0 8.8 7.2 16 16 16v16C58.3 64 44 49.7 44 32z"/></svg>
-      <div class="speaker-quote">
-        <div class="entry-content">"{{ home.quote }}" — {{ home.quote_author }}</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{% if home.youtube_id %}
-<div id="video-wrapper" class="relative">
-  <div class="wrapper">
-    <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/{{ home.youtube_id }}" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
-  </div>
-</div>
-{% endif %}
+</footer>

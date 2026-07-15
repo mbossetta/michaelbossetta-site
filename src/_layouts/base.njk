@@ -11,7 +11,7 @@
   <main id="main">
     {{ content | safe }}
   </main>
-  {% include "footer.njk" %}
+  {% if not hide_global_footer %}{% include "footer.njk" %}{% endif %}
   <script src="/assets/js/nav.js" defer></script>
   {% if site.ga4_id -%}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga4_id }}"></script>
