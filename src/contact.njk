@@ -3,11 +3,10 @@ layout: base.njk
 title: Contact
 permalink: /contact/
 ---
-<div class="container page-content">
-  <h1>Contact</h1>
-  <p>I'm happy to hear from colleagues, journalists, students, and podcast listeners.</p>
-  <ul class="contact-list">
-    <li>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-    <li>Twitter: <a href="{{ site.twitter }}">{{ site.twitter_handle }}</a></li>
-  </ul>
+{% include "page-title.njk" %}
+<div class="wrapper page-section no-padding-top">
+  <div class="page-content">
+    <p>Twitter: <a href="{{ site.twitter }}" target="_blank" rel="noopener"><strong>{{ site.twitter_handle }}</strong></a><br>
+    Email: <a href="mailto:{{ site.email }}"><strong>{{ site.email }}</strong></a></p>
+  </div>
 </div>
