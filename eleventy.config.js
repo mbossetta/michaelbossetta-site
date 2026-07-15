@@ -40,6 +40,22 @@ export default function (eleventyConfig) {
     return url.startsWith("http://") || url.startsWith("https://");
   });
 
+  eleventyConfig.addFilter("findById", (collection, id) => {
+    if (!id || !collection) return null;
+    return collection.find((item) => item.id === id) || null;
+  });
+
+  eleventyConfig.addFilter("accentTerms", (text, terms) => {
+    if (!text) return "";
+    let out = String(text);
+    const sorted = [...(terms || [])].sort((a, b) => b.length - a.length);
+    for (const term of sorted) {
+      const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      out = out.replace(new RegExp(escaped, "g"), `<span>${term}</span>`);
+    }
+    return out;
+  });
+
   return {
     dir: {
       input: "src",

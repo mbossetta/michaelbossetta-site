@@ -1,10 +1,21 @@
 ---
 layout: base.njk
 title: Home
-og_title: Michael Bossetta | Social Media Expert | Podcaster
-description: Michael Bossetta is an Associate Professor (Docent) at Lund University. His research explores the impact of social media on politics.
+og_title: Michael Bossetta | {{ site.tagline }}
+description: Michael Bossetta is an {{ site.position }} at {{ site.institution }}. His research explores the impact of social media on politics.
 permalink: /
 ---
+{% set pub_feat = home.publications_feature %}
+{% set pod_feat = home.podcast_feature %}
+{% set work_feat = home.current_work_feature %}
+{% set linked_pub = pubs | findById(pub_feat.publication_id) %}
+{% set linked_work_media = media | findById(work_feat.media_id) %}
+{% set linked_work_pub = pubs | findById(work_feat.publication_id) %}
+{% set pub_title = linked_pub.title if linked_pub else pub_feat.title %}
+{% set pub_title_url = linked_pub.preprint_url if linked_pub and linked_pub.preprint_url else pub_feat.title_url %}
+{% set pub_description = linked_pub.note if linked_pub and linked_pub.note else pub_feat.description %}
+{% set sidebar_image = work_feat.image if work_feat.image else site.hero_bg %}
+{% set sidebar_handle = work_feat.social_handle if work_feat.social_handle else work_feat.title %}
 <div id="hero-section" class="relative">
   <div class="wrapper">
     <div class="section-content">
@@ -33,9 +44,7 @@ permalink: /
   <div class="wrapper">
     <article class="hentry">
       <header class="entry-header">
-        <h2 class="entry-title">
-          My <span>research</span> focuses on how <span>Politicians</span> and <span>Citizens</span> use <span>social media</span> during <span>Elections</span>
-        </h2>
+        <h2 class="entry-title">{{ home.about_headline | accentTerms(home.about_headline_accents) | safe }}</h2>
       </header>
       <div class="entry-content">
         <p>{{ home.about_body | replace('Contact page', '<a href="/contact/">Contact</a> page') | safe }}</p>
@@ -53,30 +62,62 @@ permalink: /
       <div class="posts-wrapper">
         <article class="hentry">
           <div class="entry-meta">
-            <span class="posted-on"><a href="/2018/04/21/publications/"><time>April 21, 2018</time></a></span>
-            <span class="post-categories"><a href="/publications/">Research</a></span>
+            {% if pub_feat.posted_url %}
+            <span class="posted-on"><a href="{{ pub_feat.posted_url }}"><time>{{ pub_feat.posted_date }}</time></a></span>
+            {% else %}
+            <span class="posted-on"><time>{{ pub_feat.posted_date }}</time></span>
+            {% endif %}
+            <span class="post-categories"><a href="{{ pub_feat.category_url }}">{{ pub_feat.category_label }}</a></span>
           </div>
           <header class="entry-header">
-            <h2 class="entry-title"><a href="/publications/">Publications</a></h2>
+            <h2 class="entry-title"><a href="{{ pub_title_url }}">{{ pub_title }}</a></h2>
           </header>
-          <div class="entry-content">{{ home.publications_teaser }}</div>
-          <span class="read-more"><a href="/publications/">Read More</a></span>
+          <div class="entry-content">{{ pub_description }}</div>
+          <span class="read-more"><a href="{{ pub_feat.link_url }}">{{ pub_feat.link_text }}</a></span>
         </article>
         <article class="hentry">
           <div class="entry-meta">
-            <span class="posted-on"><a href="/2018/04/21/the-podcast/"><time>April 21, 2018</time></a></span>
-            <span class="post-categories"><a href="/podcast/">Podcast</a></span>
+            {% if pod_feat.posted_url %}
+            <span class="posted-on"><a href="{{ pod_feat.posted_url }}"><time>{{ pod_feat.posted_date }}</time></a></span>
+            {% else %}
+            <span class="posted-on"><time>{{ pod_feat.posted_date }}</time></span>
+            {% endif %}
+            <span class="post-categories"><a href="{{ pod_feat.category_url }}">{{ pod_feat.category_label }}</a></span>
           </div>
           <header class="entry-header">
-            <h2 class="entry-title"><a href="/podcast/">The Podcast</a></h2>
+            <h2 class="entry-title"><a href="{{ pod_feat.title_url }}">{{ pod_feat.title }}</a></h2>
           </header>
-          <div class="entry-content">{{ home.podcast_teaser }}</div>
-          <span class="read-more"><a href="/podcast/">Read More</a></span>
+          <div class="entry-content">{{ pod_feat.description }}</div>
+          <span class="read-more"><a href="{{ pod_feat.link_url }}">{{ pod_feat.link_text }}</a></span>
         </article>
+        {% if work_feat.title %}
+        <article class="hentry">
+          {% if work_feat.section_label %}
+          <div class="entry-meta">
+            <span class="post-categories">{{ work_feat.section_label }}</span>
+          </div>
+          {% endif %}
+          <header class="entry-header">
+            <h2 class="entry-title">
+              {% if work_feat.link_url %}
+              <a href="{{ work_feat.link_url }}">{{ work_feat.title or linked_work_media.title or linked_work_pub.title }}</a>
+              {% else %}
+              {{ work_feat.title or linked_work_media.title or linked_work_pub.title }}
+              {% endif %}
+            </h2>
+          </header>
+          {% if work_feat.description %}
+          <div class="entry-content">{{ work_feat.description }}</div>
+          {% endif %}
+          {% if work_feat.link_url and work_feat.link_text %}
+          <span class="read-more"><a href="{{ work_feat.link_url }}">{{ work_feat.link_text }}</a></span>
+          {% endif %}
+        </article>
+        {% endif %}
       </div>
       <div class="featured-image-wrapper">
-        <div class="featured-image" style="background-image: url('{{ site.hero_bg }}');">
-          <p class="designation">{{ home.social_handle }}</p>
+        <div class="featured-image" style="background-image: url('{{ sidebar_image }}');">
+          <p class="designation">{{ sidebar_handle }}</p>
         </div>
       </div>
     </div>

@@ -16,11 +16,10 @@ permalink: /podcast/
         loading="lazy"></iframe>
     </div>
 
-    <p>In October 2016, I launched the <strong><a href="{{ site.podcast.site }}">Social Media and Politics Podcast</a></strong>, an interview-driven podcast that explores politically relevant topics in the social media space.</p>
-    <p>Episodes are released bi-monthly and communicate expert insights from top-tier researchers, digital campaigners, and social media strategists.</p>
-    <p>Podcasting has quickly become one of my greatest passions, and it's all thanks to the listeners and guests who contribute their time to support the show.</p>
-    <p>So far, the series has garnered over 175,000 downloads from 150+ countries. Even if you're not a podcast listener, I'd encourage you to try it out!</p>
-    <p>You can find the Social Media and Politics Podcast on any podcast app.</p>
+    <p>{% set intro_parts = site.podcast_page.intro.split('Social Media and Politics Podcast') %}{% if intro_parts | length == 2 %}{{ intro_parts[0] }}<strong><a href="{{ site.podcast.site }}">Social Media and Politics Podcast</a></strong>{{ intro_parts[1] }}{% else %}{{ site.podcast_page.intro }}{% endif %}</p>
+    {% for paragraph in site.podcast_page.body_paragraphs %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
 
     <ul class="podcast-links">
       <li><a href="{{ site.podcast.site }}">Podcast website</a></li>

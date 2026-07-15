@@ -1,8 +1,11 @@
 {
   "name": "Michael Bossetta",
-  "tagline": "Social Media Expert | Podcaster",
+  "tagline": "Political Communication · Social Media · Democracy",
   "url": "https://michaelbossetta.com",
-  "email": "michael@socialmediaandpolitics.org",
+  "position": "Associate Professor (Docent)",
+  "department": "Department of Communication",
+  "institution": "Lund University",
+  "email": "michael.bossetta@iko.lu.se",
   "twitter": "https://twitter.com/michaelbossetta",
   "twitter_handle": "@MichaelBossetta",
   "ga4_id": "G-XV3CTBJWRY",
@@ -11,6 +14,21 @@
   "headshot": "/wp-content/uploads/2023/01/Michael-Bossetta-Headshot-Compressed-for-Website-1-scaled.jpg",
   "hero_bg": "/wp-content/uploads/2018/04/Copenhagen-Black-White-Color-Select-1-e1524284609434.jpg",
   "favicon": "/wp-content/uploads/2020/11/favicon-1.ico",
+  "publications_page": {
+    "lead": "Thanks for your interest in my work!",
+    "line_1": "Below you'll find a list of my publications.",
+    "line_2": "Simply click the titles for publicly available pre-prints.",
+    "line_3": "For published versions, please click the [X] in the Link column."
+  },
+  "podcast_page": {
+    "intro": "In October 2016, I launched the Social Media and Politics Podcast, an interview-driven podcast that explores politically relevant topics in the social media space.",
+    "body_paragraphs": [
+      "Episodes are released bi-monthly and communicate expert insights from top-tier researchers, digital campaigners, and social media strategists.",
+      "Podcasting has quickly become one of my greatest passions, and it's all thanks to the listeners and guests who contribute their time to support the show.",
+      "So far, the series has garnered over 175,000 downloads from 150+ countries. Even if you're not a podcast listener, I'd encourage you to try it out!",
+      "You can find the Social Media and Politics Podcast on any podcast app."
+    ]
+  },
   "podcast": {
     "site": "https://socialmediaandpolitics.org",
     "apple": "https://podcasts.apple.com/us/podcast/social-media-and-politics/id1170179745",

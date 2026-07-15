@@ -1,6 +1,15 @@
 media:
-  input: src/wp-content/uploads
-  output: /wp-content/uploads
+  - name: uploads
+    label: Website images & PDFs
+    input: src/wp-content/uploads
+    output: /wp-content/uploads
+    categories: [image, document]
+  - name: files
+    label: CV & site documents
+    input: src/files
+    output: /files
+    categories: [document]
+    extensions: [pdf]
 
 settings:
   content:
@@ -13,102 +22,151 @@ content:
     path: src/_data/home.json
     format: json
     fields:
-      - name: position
-        label: Current title / position
-        type: string
-      - name: affiliation
-        label: Institutional affiliation
-        type: string
       - name: hero_intro
-        label: Hero introduction
+        label: Hero biography
         type: text
-        description: Short bio shown in the homepage hero. Link to Publications and Podcast by name — they will be linked automatically.
+        description: Short bio in the hero. Write Publications and Podcast as plain words — they become links automatically.
       - name: about_headline
-        label: About section headline
+        label: Research-focus statement
         type: text
-        description: Plain-text headline (accent styling is applied in the template).
+        description: Plain-text headline for the about section. Words listed in “Accent words” appear in blue.
+      - name: about_headline_accents
+        label: Accent words (research statement)
+        type: string
+        list: true
+        description: Words in the research statement to highlight in blue, e.g. research, Politicians, Elections.
       - name: about_body
-        label: About section body
+        label: Main research description
         type: text
+        description: Center column on the homepage. Write Contact page as plain text — it becomes a link.
       - name: podcast_summary
-        label: Podcast summary (about sidebar)
+        label: Podcast description (about sidebar)
         type: text
-      - name: publications_teaser
-        label: Publications teaser text
-        type: text
-      - name: podcast_teaser
-        label: Podcast teaser text
-        type: text
+        description: Right column in the about section.
+      - name: publications_feature
+        label: Featured publications block
+        type: object
+        description: Lower homepage block linking to your publications. Optionally link a specific publication by ID.
+        fields:
+          - name: section_label
+            label: Section label (optional)
+            type: string
+          - name: posted_date
+            label: Date shown
+            type: string
+          - name: posted_url
+            label: Date link URL (optional)
+            type: string
+          - name: category_label
+            label: Category label
+            type: string
+          - name: category_url
+            label: Category URL
+            type: string
+          - name: title
+            label: Title
+            type: string
+            description: Used when no publication ID is set.
+          - name: title_url
+            label: Title URL
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: link_text
+            label: Link text
+            type: string
+          - name: link_url
+            label: Link URL
+            type: string
+          - name: publication_id
+            label: Publication ID (optional)
+            type: string
+            description: Copy an ID from Publications (e.g. pub-2024-did-gen-z-shape-the-election-no-because). When set, the title links to that publication’s preprint URL.
+      - name: podcast_feature
+        label: Featured podcast block
+        type: object
+        fields:
+          - name: section_label
+            label: Section label (optional)
+            type: string
+          - name: posted_date
+            label: Date shown
+            type: string
+          - name: posted_url
+            label: Date link URL (optional)
+            type: string
+          - name: category_label
+            label: Category label
+            type: string
+          - name: category_url
+            label: Category URL
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: title_url
+            label: Title URL
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: link_text
+            label: Link text
+            type: string
+          - name: link_url
+            label: Link URL
+            type: string
+          - name: media_id
+            label: Media ID (optional)
+            type: string
+            description: Reserved for linking a media appearance to this block.
+      - name: current_work_feature
+        label: Sidebar / current work
+        type: object
+        description: Image and handle shown beside the homepage feature blocks. Leave title empty to hide an extra text block.
+        fields:
+          - name: social_handle
+            label: Handle or caption
+            type: string
+            description: Text overlaid on the sidebar image, e.g. @SMandPPodcast
+          - name: image
+            label: Sidebar image (optional)
+            type: image
+            options:
+              media: uploads
+            description: Leave blank to use the default homepage sidebar image from Site information.
+          - name: publication_id
+            label: Featured publication ID (optional)
+            type: string
+          - name: media_id
+            label: Featured media ID (optional)
+            type: string
+          - name: section_label
+            label: Extra block label (optional)
+            type: string
+          - name: title
+            label: Extra block title (optional)
+            type: string
+          - name: description
+            label: Extra block description (optional)
+            type: text
+          - name: link_text
+            label: Extra block link text (optional)
+            type: string
+          - name: link_url
+            label: Extra block link URL (optional)
+            type: string
       - name: quote
         label: Quote text
         type: string
       - name: quote_author
-        label: Quote attribution
+        label: Quote author
         type: string
       - name: youtube_id
         label: YouTube video ID
         type: string
-        description: ID only, e.g. xQm9wWMyG3M
-      - name: social_handle
-        label: Featured social handle
-        type: string
-
-  - name: site
-    label: Site settings
-    type: file
-    path: src/_data/site.json
-    format: json
-    fields:
-      - name: name
-        label: Name
-        type: string
-      - name: tagline
-        label: Tagline
-        type: string
-      - name: url
-        label: Site URL
-        type: string
-      - name: email
-        label: Contact email
-        type: string
-      - name: twitter
-        label: Twitter / X URL
-        type: string
-      - name: twitter_handle
-        label: Twitter / X handle
-        type: string
-      - name: headshot
-        label: Profile image
-        type: image
-        description: Path under /wp-content/uploads/ — upload via Media or paste path after upload.
-      - name: hero_bg
-        label: Homepage sidebar image
-        type: image
-      - name: favicon
-        label: Favicon
-        type: image
-      - name: cv_url
-        label: CV URL
-        type: string
-      - name: ga4_id
-        label: Google Analytics 4 ID
-        type: string
-      - name: podcast
-        label: Podcast links
-        type: object
-        fields:
-          - name: site
-            label: Podcast website
-            type: string
-          - name: apple
-            label: Apple Podcasts URL
-            type: string
-          - name: spotify
-            label: Spotify URL
-            type: string
-          - name: embed
-            label: Apple Podcasts embed URL
-            type: string
+        description: ID only, e.g. xQm9wWMyG3M. Leave blank to hide the video section.
 
   - name: publications
     label: Publications
@@ -120,8 +178,12 @@ content:
       primary: title
       sort: year
       order: desc
-      fields: [year, authors, title, journal]
+      fields: [id, year, authors, journal]
     fields:
+      - name: id
+        label: Stable ID
+        type: string
+        description: Used to feature this publication on the homepage. Do not change after publishing.
       - name: year
         label: Year
         type: number
@@ -135,7 +197,7 @@ content:
         type: string
         required: true
       - name: journal
-        label: Journal or publication venue
+        label: Journal or venue
         type: string
       - name: volume
         label: Volume
@@ -149,30 +211,37 @@ content:
       - name: type
         label: Publication type
         type: string
+        description: e.g. Journal article, Book chapter, Report
       - name: doi
         label: DOI
         type: string
       - name: preprint_url
-        label: Preprint URL
+        label: Preprint / open-access URL
         type: string
+        description: Title links to this URL when present.
       - name: published_url
-        label: Published-version URL
+        label: Publisher URL
         type: string
+        description: Shown as [X] in the Link column.
       - name: pdf_url
         label: PDF URL
         type: string
-      - name: featured
-        label: Featured
-        type: boolean
-      - name: order
-        label: Display order
-        type: number
+        description: Used for [X] if no publisher URL is set.
       - name: note
         label: Optional note
         type: text
+        description: Shown on the homepage when this publication is featured by ID.
+      - name: order
+        label: Display order
+        type: number
+        description: Optional manual sort (lower numbers first). Default list sorts by year.
+      - name: featured
+        label: Mark as homepage candidate
+        type: boolean
+        description: Reminder flag only — set the homepage Publication ID separately under Homepage.
 
   - name: media
-    label: Media appearances
+    label: Media
     type: file
     path: src/_data/media.json
     format: json
@@ -181,12 +250,16 @@ content:
       primary: title
       sort: order
       order: asc
-      fields: [category, date, outlet, title]
+      fields: [id, category, date, outlet, title]
     fields:
+      - name: id
+        label: Stable ID
+        type: string
+        description: Used to feature this item on the homepage. Do not change after publishing.
       - name: order
         label: Display order
         type: number
-        description: Sort order within the category (lower numbers appear first).
+        description: Sort order within the category (lower numbers first).
       - name: category
         label: Format or category
         type: select
@@ -212,13 +285,104 @@ content:
       - name: description
         label: Description
         type: string
-        description: e.g. "Student Lecture", "Public Lecture"
+        description: e.g. Student Lecture, Public Lecture
       - name: url
         label: URL
         type: string
       - name: image
-        label: Image
+        label: Image (optional)
         type: image
+        options:
+          media: uploads
       - name: featured
-        label: Featured
+        label: Mark as homepage candidate
         type: boolean
+        description: Reminder flag only — set the homepage Media ID separately under Homepage.
+
+  - name: site
+    label: Site information
+    type: file
+    path: src/_data/site.json
+    format: json
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+        description: Shown under your name in the header.
+      - name: position
+        label: Current position
+        type: string
+      - name: department
+        label: Department
+        type: string
+      - name: institution
+        label: Institution
+        type: string
+      - name: email
+        label: Contact email
+        type: string
+      - name: twitter
+        label: Twitter / X profile URL
+        type: string
+      - name: twitter_handle
+        label: Twitter / X handle
+        type: string
+      - name: headshot
+        label: Profile image
+        type: image
+        options:
+          media: uploads
+      - name: hero_bg
+        label: Homepage sidebar image
+        type: image
+        options:
+          media: uploads
+      - name: favicon
+        label: Favicon
+        type: image
+        options:
+          media: uploads
+      - name: cv_url
+        label: CV download path
+        type: string
+        description: Usually /files/cv.pdf after uploading a new CV to CV & site documents.
+      - name: podcast
+        label: Podcast links
+        type: object
+        fields:
+          - name: site
+            label: Podcast website
+            type: string
+          - name: apple
+            label: Apple Podcasts URL
+            type: string
+          - name: spotify
+            label: Spotify URL
+            type: string
+          - name: embed
+            label: Apple Podcasts embed URL
+            type: string
+      - name: publications_page
+        label: Publications page intro
+        type: object
+        fields:
+          - name: lead
+            label: Lead line
+            type: string
+          - name: line_1
+            label: Intro line 1
+            type: string
+      - name: podcast_page
+        label: Podcast page text
+        type: object
+        fields:
+          - name: intro
+            label: Opening paragraph
+            type: text
+          - name: body_paragraphs
+            label: Body paragraphs
+            type: text
+            list: true
