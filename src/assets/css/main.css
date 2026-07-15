@@ -354,9 +354,10 @@ a:focus-visible {
 }
 
 #hero-section .featured-image {
+  padding: 0;
   height: var(--hero-height);
   overflow: hidden;
-  background-color: #adadad;
+  background: transparent;
 }
 
 #hero-section .featured-image img {
@@ -365,8 +366,6 @@ a:focus-visible {
   height: 100%;
   object-fit: cover;
   object-position: 50% 0%;
-  transform: scale(0.935);
-  transform-origin: 50% 100%;
 }
 
 #hero-section header.entry-header {
@@ -841,18 +840,43 @@ a:focus-visible {
 /* Responsive */
 @media (max-width: 1023px) {
   #masthead.site-header {
-    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    padding: 12px 15px;
+  }
+
+  #masthead.site-header::after {
+    display: none;
+  }
+
+  .site-branding {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
   }
 
   .menu-toggle {
     display: block;
+    float: none;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    margin-top: 0.35rem;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.625rem 0.75rem;
+    height: auto;
   }
 
   .main-navigation {
     display: none;
-    clear: both;
+    flex: 1 1 100%;
+    order: 3;
+    clear: none;
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 
   .main-navigation.is-open {
@@ -936,7 +960,15 @@ a:focus-visible {
     bottom: auto;
     left: auto;
     max-width: 100%;
-    margin-top: 30px;
+    margin-top: 0;
+  }
+
+  #hero-section header.entry-header {
+    margin-bottom: 0;
+  }
+
+  #hero-section .entry-description {
+    margin-top: 1rem;
   }
 
   #hero-section .featured-image {
@@ -950,7 +982,6 @@ a:focus-visible {
     min-height: 180px;
     max-height: 420px;
     object-position: 50% 0%;
-    transform: none;
   }
 
   #hero-section .entry-title {
@@ -1001,7 +1032,7 @@ a:focus-visible {
   }
 
   .site-branding {
-    max-width: 60%;
+    max-width: none;
   }
 
   .site-title {
@@ -1009,14 +1040,61 @@ a:focus-visible {
   }
 }
 
-@media (max-width: 480px) {
-  #hero-section .featured-image img {
-    transform: none;
-    min-height: 220px;
-    max-height: 360px;
-    object-position: 50% 8%;
+@media (max-width: 640px) {
+  #hero-section {
+    margin-top: clamp(2rem, 8vw, 3rem);
   }
 
+  .site-description {
+    font-size: clamp(0.68rem, 2.8vw, 0.78rem);
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+
+  #hero-section .entry-description .entry-content,
+  #hero-section .small-description {
+    max-width: 42ch;
+  }
+
+  #about-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  #about-section .entry-header,
+  #about-section .entry-content,
+  #about-section .description {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 1.75rem;
+  }
+
+  #about-section .entry-title {
+    font-size: 1rem;
+    line-height: 1.55;
+    padding-right: 0;
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  #about-section .entry-content {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  #about-section .description {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  #about-section .entry-content p {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
   #latest-posts .featured-image {
     padding: 215px 0;
   }
