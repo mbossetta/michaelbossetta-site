@@ -1,22 +1,20 @@
-<header class="site-header" id="masthead">
-  <div class="wrapper header-inner">
-    <div class="site-branding">
-      <div id="site-details">
-        <p class="site-title"><a href="/">{{ site.name }}</a></p>
-        <p class="site-description">{{ site.tagline }}</p>
-      </div>
+<header id="masthead" class="site-header sticky-header">
+  <div class="site-branding">
+    <div id="site-details">
+      <p class="site-title"><a href="/">{{ site.name }}</a></p>
+      <p class="site-description">{{ site.tagline }}</p>
     </div>
-    <button class="nav-toggle menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle-label">Menu</span>
-    </button>
-    <nav id="site-nav" class="site-nav main-navigation" aria-label="Main">
-      <ul class="nav-menu">
-        {% for item in navigation %}
-        <li{% if page.url == item.url %} class="current-menu-item"{% endif %}>
-          <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
   </div>
+  <button class="nav-toggle menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+    <span class="menu-label">Menu</span>
+  </button>
+  <nav id="site-navigation" class="main-navigation" aria-label="Main">
+    <ul id="primary-menu" class="menu nav-menu">
+      {% for item in navigation %}
+      <li{% if page.url == item.url %} class="current-menu-item"{% endif %}>
+        <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
 </header>

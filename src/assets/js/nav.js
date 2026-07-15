@@ -1,6 +1,6 @@
 (function () {
-  var toggle = document.querySelector(".nav-toggle");
-  var nav = document.getElementById("site-nav");
+  var toggle = document.querySelector(".menu-toggle");
+  var nav = document.getElementById("site-navigation");
   if (!toggle || !nav) return;
 
   toggle.addEventListener("click", function () {
