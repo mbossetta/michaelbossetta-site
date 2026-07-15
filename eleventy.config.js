@@ -13,6 +13,33 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("currentYear", () => new Date().getFullYear());
 
+  eleventyConfig.addFilter("groupMediaByCategory", (items) => {
+    const order = [
+      "Presentations",
+      "Television",
+      "Print",
+      "Radio",
+      "Podcasts / YouTube",
+      "Independent Publishers",
+    ];
+    const groups = {};
+    for (const item of items || []) {
+      if (!groups[item.category]) groups[item.category] = [];
+      groups[item.category].push(item);
+    }
+    for (const cat of Object.keys(groups)) {
+      groups[cat].sort((a, b) => (a.order || 0) - (b.order || 0));
+    }
+    return order
+      .filter((cat) => groups[cat]?.length)
+      .map((cat) => ({ category: cat, items: groups[cat] }));
+  });
+
+  eleventyConfig.addFilter("externalLink", (url) => {
+    if (!url) return false;
+    return url.startsWith("http://") || url.startsWith("https://");
+  });
+
   return {
     dir: {
       input: "src",
