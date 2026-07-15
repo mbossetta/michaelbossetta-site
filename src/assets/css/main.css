@@ -861,13 +861,14 @@ a:focus-visible {
 /* Hero portrait — full intrinsic image above stacked breakpoint */
 @media (min-width: 821px) {
   #hero-section .hentry {
-    grid-template-columns: minmax(420px, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(500px, 0.95fr) minmax(0, 1.05fr);
     align-items: stretch;
   }
 
   #hero-section .entry-summary {
     align-self: center;
-    max-width: 470px;
+    width: 100%;
+    max-width: 520px;
     min-height: 0;
     padding-left: 14%;
     padding-right: 15px;
@@ -882,8 +883,18 @@ a:focus-visible {
     max-width: none;
   }
 
-  #hero-section header.entry-header {
-    max-width: min(100%, 520px);
+  #hero-section .entry-title {
+    width: max-content;
+    max-width: none;
+  }
+
+  #hero-section .entry-title span.first-name,
+  #hero-section .entry-title span.last-name {
+    display: block;
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
   }
 
   #hero-section .entry-description {
