@@ -3,11 +3,22 @@ layout: base.njk
 title: CV
 permalink: /cv/
 ---
-{% include "page-title.njk" %}
-<div class="wrapper page-section no-padding-top">
-  <div class="page-content cv-download">
-    <p class="cv-button-wrap">
-      <a class="btn-cv" href="{{ site.cv_url }}" target="_blank" rel="noopener">Download CV</a>
+<div class="cv-page">
+  <div class="wrapper">
+    <header class="page-header">
+      <h2 class="entry-title"><span>{{ title }}</span></h2>
+    </header>
+    <a class="cv-download-button" href="{{ site.cv_url }}" download>Download CV</a>
+    <div class="cv-viewer">
+      <object data="{{ site.cv_url }}" type="application/pdf" width="100%" height="100%">
+        <p>
+          Your browser cannot display the PDF.
+          <a href="{{ site.cv_url }}">Open the CV</a>.
+        </p>
+      </object>
+    </div>
+    <p class="cv-viewer-fallback">
+      <a href="{{ site.cv_url }}">Open the CV</a>
     </p>
   </div>
 </div>

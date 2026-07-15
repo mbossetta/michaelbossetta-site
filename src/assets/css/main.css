@@ -31,15 +31,26 @@
 
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
 }
 
 body {
   margin: 0;
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.625;
   color: var(--color-text);
   background: var(--color-bg);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -300,7 +311,7 @@ a:focus-visible {
 
 /* Footer */
 .site-footer {
-  margin-top: 0;
+  margin-top: auto;
 }
 
 .site-info {
@@ -321,13 +332,25 @@ a:focus-visible {
   text-decoration: none;
 }
 
+.home-footer .site-info {
+  padding: 1.35rem 0;
+  background: var(--color-bg);
+}
+
+.home-footer .site-info p {
+  max-width: 36em;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
 /* Page title (inner pages) */
 #page-title {
   padding-top: 40px;
   padding-bottom: 10px;
 }
 
-#page-title .entry-title {
+#page-title .entry-title,
+.cv-page .entry-title {
   font-family: var(--font-serif);
   font-size: 48px;
   font-weight: 400;
@@ -638,26 +661,21 @@ a:focus-visible {
 }
 
 /* CV */
-.cv-download {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem 0 3rem;
+.cv-page {
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-.cv-download p,
-.page-content.cv-download p {
-  text-align: center;
-  max-width: none;
+.cv-page .page-header {
   margin: 0;
 }
 
-.cv-button-wrap {
+.cv-page .entry-title {
   margin: 0;
 }
 
-.btn-cv {
+.cv-download-button {
   display: inline-block;
+  margin-top: 1.5rem;
   width: 115px;
   height: 44px;
   border: 2px solid var(--color-accent);
@@ -670,13 +688,50 @@ a:focus-visible {
   line-height: 40px;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 0 2px 0 #333;
+  box-shadow: none;
 }
 
-.btn-cv:hover,
-.btn-cv:focus {
+.cv-download-button:hover,
+.cv-download-button:focus {
   background-color: var(--color-background);
   color: var(--color-accent);
+}
+
+.cv-viewer {
+  width: 100%;
+  height: min(82vh, 1100px);
+  margin-top: 2rem;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.cv-viewer object {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cv-viewer object p {
+  margin: 0;
+  padding: 1.5rem;
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+.cv-viewer-fallback {
+  display: none;
+  margin: 1rem 0 0;
+  font-size: 15px;
+}
+
+@media (max-width: 820px) {
+  .cv-viewer {
+    height: 72vh;
+  }
+
+  .cv-viewer-fallback {
+    display: block;
+  }
 }
 
 /* Podcast */
@@ -923,7 +978,7 @@ a:focus-visible {
   }
 
   #about-section.page-section {
-    padding-top: 75px;
+    padding-top: 60px;
   }
 }
 
@@ -1126,7 +1181,8 @@ a:focus-visible {
     font-size: 18px;
   }
 
-  #page-title .entry-title {
+  #page-title .entry-title,
+  .cv-page .entry-title {
     font-size: 40px;
   }
 
@@ -1209,9 +1265,5 @@ a:focus-visible {
 @media (max-width: 480px) {
   #latest-posts .featured-image {
     padding: 215px 0;
-  }
-
-  .btn-cv {
-    width: 90%;
   }
 }
