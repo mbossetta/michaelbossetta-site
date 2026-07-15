@@ -47,7 +47,7 @@ permalink: /
         <h2 class="entry-title">{{ home.about_headline | accentTerms(home.about_headline_accents) | safe }}</h2>
       </header>
       <div class="entry-content">
-        <p>{{ home.about_body | replace('Contact page', '<a href="/contact/">Contact</a> page') | safe }}</p>
+        <p class="research-description">{{ home.about_body | replace('Contact page', '<a href="/contact/">Contact</a> page') | safe }}</p>
       </div>
       <div class="description">
         {{ home.podcast_summary }}
