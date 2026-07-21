@@ -10,7 +10,8 @@
       <strong>{{ item.title }}</strong>
       {% endif %}
       {% if item.description %} {{ item.description }} for{% endif %}
-      {% if item.outlet %} <em>{{ item.outlet }}</em>{% endif %}{% if item.date %}, {{ item.date }}.{% endif %}
+      {% set mediaOutlet = item | mediaDisplayOutlet %}
+      {% if mediaOutlet %} <em>{{ mediaOutlet }}</em>{% endif %}{% set mediaDate = item | mediaDisplayDate %}{% if mediaDate %}, {{ mediaDate }}.{% endif %}
     </li>
     {% endfor %}
   </ul>

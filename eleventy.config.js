@@ -47,6 +47,23 @@ export default function (eleventyConfig) {
     return collection.find((item) => item.id === id) || null;
   });
 
+  eleventyConfig.addFilter("mediaDisplayDate", (item) => {
+    if (!item) return "";
+    if (item.month && item.year) {
+      if (item.day) return `${item.month} ${item.day}, ${item.year}`;
+      return `${item.month} ${item.year}`;
+    }
+    return item.date || "";
+  });
+
+  eleventyConfig.addFilter("mediaDisplayOutlet", (item) => {
+    if (!item?.outlet) return "";
+    if (item.outlet_nationality) {
+      return `${item.outlet} (${item.outlet_nationality})`;
+    }
+    return item.outlet;
+  });
+
   eleventyConfig.addFilter("accentTerms", (text, terms) => {
     if (!text) return "";
     let out = String(text);

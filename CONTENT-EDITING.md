@@ -118,9 +118,13 @@ Optional fields (volume, issue, pages, DOI, PDF, type, note, display order) are 
 ## Adding a media appearance
 
 1. Open **Media** → **Add**.
-2. Set **Format or category**, **Title**, **Date**, **Outlet**, and **URL**.
-3. Set **Display order** within that category (lower numbers appear first).
-4. **Save** → wait for rebuild.
+2. Set **Format or category**, **Title**, and **URL**.
+3. Enter **Outlet** (name only) and **Outlet nationality** (e.g. `US`, `SE`, `EU`, `UK`) — the site shows these as `Outlet (US)`.
+4. Set **Month**, optional **Day**, and **Year**.
+5. Set **Display order** within that category (lower numbers appear first).
+6. **Save** → wait for rebuild.
+
+Existing entries were migrated from combined `outlet` and `date` fields. Outlets with a two-letter country code in brackets at the end were split automatically. Descriptive brackets (e.g. `(Adam Carolla)`, `(Lithuanian Public Radio)`) were left on the outlet name.
 
 To feature on the homepage sidebar, copy the entry’s **Stable ID** into **Homepage → Sidebar / current work → Featured media ID**.
 

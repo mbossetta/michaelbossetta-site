@@ -250,7 +250,7 @@ content:
       primary: title
       sort: order
       order: asc
-      fields: [id, category, date, outlet, title]
+      fields: [id, category, month, year, outlet, outlet_nationality, title]
     fields:
       - name: id
         label: Stable ID
@@ -272,23 +272,51 @@ content:
             - Podcasts / YouTube
             - Independent Publishers
         required: true
-      - name: date
-        label: Date
-        type: string
       - name: title
         label: Title
         type: string
         required: true
+      - name: url
+        label: URL
+        type: string
+        description: Link to the article, clip, or recording.
       - name: outlet
         label: Outlet
         type: string
+        description: Name of the outlet only, without the country code in brackets.
+      - name: outlet_nationality
+        label: Outlet nationality
+        type: string
+        description: Two-letter country or region code shown in brackets, e.g. US, SE, EU, UK.
+      - name: month
+        label: Month
+        type: select
+        options:
+          values:
+            - January
+            - February
+            - March
+            - April
+            - May
+            - June
+            - July
+            - August
+            - September
+            - October
+            - November
+            - December
+      - name: day
+        label: Day (optional)
+        type: number
+        description: Include for dates like “October 8, 2020”. Leave blank for month-year only.
+      - name: year
+        label: Year
+        type: number
+        required: true
       - name: description
         label: Description
         type: string
         description: e.g. Student Lecture, Public Lecture
-      - name: url
-        label: URL
-        type: string
       - name: image
         label: Image (optional)
         type: image
