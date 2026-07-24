@@ -3,22 +3,24 @@ layout: base.njk
 title: CV
 permalink: /cv/
 ---
+{% set cvPath = site.cv_url | encodeUriPath %}
+{% set cvDownloadName = site.cv_url | pathBasename | htmlAttr %}
 <div class="cv-page">
   <div class="wrapper">
     <header class="page-header">
       <h2 class="entry-title"><span>{{ title }}</span></h2>
     </header>
-    <a class="cv-download-button" href="{{ site.cv_url }}" download>Download CV</a>
+    <a class="cv-download-button" href="{{ cvPath }}" download="{{ cvDownloadName }}">Download CV</a>
     <div class="cv-viewer">
-      <object data="{{ site.cv_url }}" type="application/pdf" width="100%" height="100%">
+      <object data="{{ cvPath }}" type="application/pdf" width="100%" height="100%">
         <p>
           Your browser cannot display the PDF.
-          <a href="{{ site.cv_url }}">Open the CV</a>.
+          <a href="{{ cvPath }}">Open the CV</a>.
         </p>
       </object>
     </div>
     <p class="cv-viewer-fallback">
-      <a href="{{ site.cv_url }}">Open the CV</a>
+      <a href="{{ cvPath }}">Open the CV</a>
     </p>
   </div>
 </div>

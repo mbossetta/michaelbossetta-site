@@ -10,6 +10,7 @@ media:
     output: /files
     categories: [document]
     extensions: [pdf]
+    rename: false
 
 settings:
   content:
@@ -374,9 +375,13 @@ content:
         options:
           media: uploads
       - name: cv_url
-        label: CV download path
-        type: string
-        description: Usually /files/cv.pdf after uploading a new CV to CV & site documents.
+        label: Current CV
+        type: file
+        description: Upload or select a PDF from CV & site documents. The original filename is kept and used for downloads.
+        options:
+          media: files
+          extensions: [pdf]
+          rename: false
       - name: podcast
         label: Podcast links
         type: object

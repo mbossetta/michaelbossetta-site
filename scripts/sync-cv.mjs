@@ -1,25 +1,28 @@
 #!/usr/bin/env node
-import { copyFileSync, mkdirSync, existsSync } from "fs";
+import { copyFileSync, existsSync, mkdirSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import {
+  cvUrlToSrcPath,
+  legacyCvSrcPath,
+  readSiteCvUrl,
+} from "./lib/cv-path.mjs";
 
 const root = join(fileURLToPath(import.meta.url), "..", "..");
-const cvSrc = join(root, "src", "files", "cv.pdf");
-const cvLegacy = join(
-  root,
-  "src",
-  "wp-content",
-  "uploads",
-  "2025",
-  "08",
-  "Michael-Bossetta-CV-Updated-August-2025.pdf"
-);
+const cvUrl = readSiteCvUrl(root);
+const cvSrc = cvUrlToSrcPath(root, cvUrl);
+const cvLegacy = legacyCvSrcPath(root);
+
+if (!cvSrc) {
+  console.warn("sync-cv: site.cv_url must be a /files/ path");
+  process.exit(0);
+}
 
 if (!existsSync(cvSrc)) {
-  console.warn("sync-cv: src/files/cv.pdf not found (run mirror-assets first)");
+  console.warn(`sync-cv: CV source not found at ${cvSrc}`);
   process.exit(0);
 }
 
 mkdirSync(dirname(cvLegacy), { recursive: true });
 copyFileSync(cvSrc, cvLegacy);
-console.log("sync-cv: copied cv.pdf → legacy wp-content path");
+console.log(`sync-cv: copied ${cvUrl} → legacy wp-content path`);

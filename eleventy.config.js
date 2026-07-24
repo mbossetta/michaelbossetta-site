@@ -64,6 +64,29 @@ export default function (eleventyConfig) {
     return item.outlet;
   });
 
+  eleventyConfig.addFilter("encodeUriPath", (path) => {
+    if (!path) return "";
+    return String(path)
+      .split("/")
+      .map((segment) => encodeURIComponent(segment))
+      .join("/");
+  });
+
+  eleventyConfig.addFilter("pathBasename", (path) => {
+    if (!path) return "";
+    const segments = String(path).split("/").filter(Boolean);
+    return segments[segments.length - 1] || "";
+  });
+
+  eleventyConfig.addFilter("htmlAttr", (value) => {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  });
+
   eleventyConfig.addFilter("accentTerms", (text, terms) => {
     if (!text) return "";
     let out = String(text);
